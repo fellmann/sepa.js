@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--XML-Beispieldatei von XMLSpy generiert v2020 rel. 2 sp1 (http://www.altova.com)-->
+<!-- im Januar 2024 von der SIZ GmbH (Wenzel) erstellt - gemaess camt.053-Spezifikation der Deutschen Kreditwirtschaft - beschrieben in Kapitel 7 der Anlage 3 des DFÜ-Abkommens und sowmit basierend auf ISO-Version 2019 (V 3.7, gueltig ab 11/2023) Achtung: Am 29.11.2023 ergänzt um zwei weitere Umsätze (Nr. 8 Zahlungseingang mit Fremdwährungen und Gebühren und Gutschrift auf EUR-Konto und Nr. 9 Zahlungsausgang durch Recall des Umsatzes 8, hier dann Euro-Gegenwertzahlung). Es erfolgten Datumsauktualisierungen und eine Fehlkerkorrektur: Pagination inzwischen auf Statementebene, siehe Zeile 21ff Korrektur des Saldos am 08.02.2024 - Umsatz 9 war versehentlich vergessen worden, nun hier berücksichtigt-->
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:camt.053.001.08 camt.053.001.08.xsd">
+	<BkToCstmrStmt>
+		<GrpHdr>
+			<MsgId>27632364572</MsgId>
+			<CreDtTm>2023-11-29T19:30:47.0+01:00</CreDtTm>
+			<MsgRcpt>
+				<Id>
+					<OrgId>
+						<Othr>
+							<Id>Nachrichten-Empfänger</Id>
+						</Othr>
+					</OrgId>
+				</Id>
+			</MsgRcpt>
+			</GrpHdr>
+		<Stmt>
+			<Id>2736482736482</Id>
+			<StmtPgntn>
+				<PgNb>1</PgNb>
+				<LastPgInd>true</LastPgInd>
+			</StmtPgntn>
+			<ElctrncSeqNb>101</ElctrncSeqNb>
+			<LglSeqNb>32</LglSeqNb>
+			<CreDtTm>2023-11-29T17:30:47.0+01:00</CreDtTm>
+			<Acct>
+				<Id>
+					<IBAN>DE62210500001234567890</IBAN>
+				</Id>
+				<Tp>
+					<Cd>CACC</Cd>
+				</Tp>
+				<Ccy>EUR</Ccy>
+				<Ownr>
+					<Nm>Name Kontoinhaber</Nm>
+					<PstlAdr>
+						<StrtNm>Schlossallee</StrtNm>
+						<PstCd>53113</PstCd>
+						<TwnNm>Bonn</TwnNm>
+					</PstlAdr>
+				</Ownr>
+				<Svcr>
+					<FinInstnId>
+						<BICFI>BANKDEFFXXX</BICFI>
+						<Othr>
+							<Id>DE123456789</Id>
+							<Issr>UnsStId</Issr>
+						</Othr>
+					</FinInstnId>
+				</Svcr>
+			</Acct>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+					<!-- Anfangssaldo OpeningBooked - neuer Code -->
+						<Cd>OPBD</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="EUR">1120.72</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Dt>
+					<Dt>2023-11-29</Dt>
+				</Dt>
+			</Bal>
+			<Bal>
+				<Tp>
+					<CdOrPrtry>
+					<!-- Endsaldo - hier + 1.120,72 + 100 + 200 - 50 - 156  - 8.500 - 276 - 432,76 gleich -7.994,04 zzgl. Zahlungseingang von + 203,38 mit Umsatz 8 (eingefügt am 29.11.2023) -7790,66 abzgl. 203,38 durch Sollbuchung Umsatz 9 (eingefügt am 08.01.2024) - damit sind es wieder -7.994,04  -->
+						<Cd>CLBD</Cd>
+					</CdOrPrtry>
+				</Tp>
+				<Amt Ccy="EUR">7994.04</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<Dt>
+					<Dt>2023-11-29</Dt>
+				</Dt>
+			</Bal>
+			<!-- Beispiel Teil 1 - SEPA-Zahlungen (Ueberweisung, R-Transaktion, Lastschrift) -->
+			<Ntry>
+			<!-- Umsatz 1 -  Gutschrift aufgrund eines SEPA-Überweisungseinganges-->
+				<NtryRef>aaaaaa</NtryRef>
+				<Amt Ccy="EUR">100.00</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>ESCT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>166</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<EndToEndId>Ende-zu-Ende-Id des Ueberweisenden</EndToEndId>
+						</Refs>
+						<Amt Ccy="EUR">100.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>ESCT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NTRF+166</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Herr Überweisender</Nm>
+								</Pty>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>DE21500500001234567897</IBAN>
+								</Id>
+							</DbtrAcct>
+							<Cdtr>
+								<Pty>
+									<Nm>Herr Kontoinhaber</Nm>
+								</Pty>
+							</Cdtr>
+						</RltdPties>
+						<RltdAgts>
+							 <DbtrAgt><FinInstnId><BICFI>SKUEDEFFXXX</BICFI></FinInstnId></DbtrAgt>
+							 <CdtrAgt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></CdtrAgt>
+						 </RltdAgts>
+						<Purp>
+							<Cd>GDDS</Cd>
+						</Purp>
+						<RmtInf>
+							<Ustrd>Rechnungsnr. 4711 vom 03.08.2023</Ustrd>
+						</RmtInf>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SEPA GUTSCHRIFT</AddtlNtryInf>
+			</Ntry>
+			<!-- Umsatz 2 -  Gutschrift aufgrund eines Returns einer SEPA-Ueberweisung-->
+			<Ntry>
+				<NtryRef>bbbbbb</NtryRef>
+				<Amt Ccy="EUR">200.00</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-08-11</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>ICDT</Cd>
+							<SubFmlyCd>RRTN</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>159</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<EndToEndId>Urspr. E2E-Id der Hintransaktion</EndToEndId>
+						</Refs>
+						<Amt Ccy="EUR">200.00</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>ICDT</Cd>
+									<SubFmlyCd>RRTN</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NRTI+159++901</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<!--Bei R-Transaktion werden die Parteien NICHT gedreht. d.h. hier: bei einer Rückgutschrift steht der R-Gutschriftsempfänger (also der urpsprüngliche Überweisende) in den Debtorfeldern  -->
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Herr Original-Ueberweisender</Nm>
+								</Pty>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>DE62210500001234567890</IBAN>
+								</Id>
+							</DbtrAcct>
+							<Cdtr>
+								<Pty>
+									<Nm>Herr Original-Ueberweisungsempfänger</Nm>
+								</Pty>
+							</Cdtr>
+							<CdtrAcct>
+								<Id>
+									<IBAN>DE21500500001234567897</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+						<!--Debtor Agent ist hier das Institut des Rücküberweisungsempfängers - Creditor Agent das Institut der gegenseite, d.h. von wo die Überweisung zurückgegeben wurde-->
+							 <DbtrAgt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></DbtrAgt>
+							 <CdtrAgt><FinInstnId><BICFI>SKUEDEFFXXX</BICFI></FinInstnId></CdtrAgt>
+						 </RltdAgts>
+						<RmtInf>
+							<Ustrd>Angabe des urspruenglichen Verwendungszweckes</Ustrd>
+						</RmtInf>
+						<RtrInf>
+							<OrgnlBkTxCd>
+								<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>ICDT</Cd>
+									<SubFmlyCd>ESCT</SubFmlyCd>
+								</Fmly>
+								</Domn>
+								<Prtry>
+									<Cd>NTRF+116</Cd>
+									<Issr>DK</Issr>
+								</Prtry>
+							</OrgnlBkTxCd>
+							<Orgtr>
+								<Id>
+									<OrgId>
+										<AnyBIC>BANKDEHH</AnyBIC>
+									</OrgId>
+								</Id>
+							</Orgtr>
+							<Rsn>
+								<Cd>AC01</Cd>
+							</Rsn>
+							<AddtlInf>IBAN FEHLERHAFT</AddtlInf>
+						</RtrInf>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SEPA GUTSCHRIFT</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+			<!-- Umsatz 3 -  Belastung aufgrund einer SEPA-Lastschrift -->
+				<NtryRef>cccccc</NtryRef>
+				<Amt Ccy="EUR">50.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RDDT</Cd>
+							<SubFmlyCd>ESDD</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>105</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<EndToEndId>E2E-Id vergeben vom Glaeubiger</EndToEndId>
+							<MndtId>123Mandatsref45678</MndtId>
+						</Refs>
+						<Amt Ccy="EUR">50.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RDDT</Cd>
+									<SubFmlyCd>ESDD</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NDDT+105</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Herr Zahlungspflichtiger</Nm>
+								</Pty>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>DE62210500001234567890</IBAN>
+								</Id>
+							</DbtrAcct>
+							<Cdtr>
+								<Pty>
+									<Nm>Glaeubigerfirma</Nm>
+									<Id>
+									<PrvtId>
+										<Othr>
+											<Id>Cdtr-Id des Glaeubigers</Id>
+										</Othr>
+									</PrvtId>
+								</Id>
+								</Pty>								
+							</Cdtr>
+							<CdtrAcct>
+								<Id>
+									<IBAN>DE21500500001234567897</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							 <DbtrAgt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></DbtrAgt>
+							 <CdtrAgt><FinInstnId><BICFI>SKUEDEFFXXX</BICFI></FinInstnId></CdtrAgt>
+						 </RltdAgts>
+						<Purp>
+							<Cd>PHON</Cd>
+						</Purp>
+						<RmtInf>
+							<Ustrd>Telefonrechnung Juli 2023, Vertragsnummer 3536456345</Ustrd>
+						</RmtInf>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SEPA LASTSCHRIFT</AddtlNtryInf>
+			</Ntry>
+			<!-- Beispiel Teil 2: Sammlerdarstellungen -->
+			<!-- Umsatz 4 - Belastung aufgrund von SEPA-Lastschriftrückgaben (Sammelbuchung) mit Sammlerauflösung unter Transaction Details -->
+			<Ntry>
+				<NtryRef>dddddd</NtryRef>
+				<Amt Ccy="EUR">156.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>IDDT</Cd>
+							<SubFmlyCd>UPDD</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>109</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<Btch>
+						<!--hier wird (optional) die Anzahl Tx angegeben. Die Gesamtsumme TtlAmt stimmt mit dem Umsatzbetrag überein, wird daher hier nicht verwendet -->
+						<NbOfTxs>2</NbOfTxs>
+					</Btch>
+					<!-- Ab hier Aufloesung des Sammlers bestehend aus 2 Einzeltransaktionen -->
+					<!-- Tx 1 -->
+					<TxDtls>					
+						<Refs>
+							<EndToEndId>79892</EndToEndId>
+							<MndtId>10001</MndtId>
+						</Refs>
+						<!-- Rücklastschriftbetrag (Ursprungsbetrag plus Rücklastschriftgebuehren) -->
+						<Amt Ccy="EUR">76.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<AmtDtls>
+						<!-- Amount Details wird hier genutzt, um die Originaltransaktion darzustellen  -->	
+						<!-- Originalbetrag des Lastschrifteinzugs (aus der pacs.004), d.h ohne Rücklastschriftgebühren-->							
+							<InstdAmt><Amt Ccy="EUR">69</Amt></InstdAmt>							
+						</AmtDtls>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>IDDT</Cd>
+									<SubFmlyCd>UPDD</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NRTI+109++901</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<Chrgs>
+						<!--Eigententgelt (erkennbar an der BIC des eigenen Instituts), der hier genannte Betrag ist nur ein Beispiel! Man kann z.B. auch Klartexte wie EIGENENTGELT unter Type angeben -->
+							<Rcrd>
+								<Amt Ccy="EUR">3</Amt>
+								<CdtDbtInd>DBIT</CdtDbtInd>
+								<ChrgInclInd>true</ChrgInclInd>
+								<Agt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></Agt>
+							</Rcrd>															
+						<!--Fremdentgelt (erkennbar an der BIC des anderen Instituts), der hier genannte Betrag ist nur ein Beispiel! Reihenfolge der Entgelte nicht vorgegeben-->
+							<Rcrd>
+								<Amt Ccy="EUR">4</Amt>
+								<CdtDbtInd>DBIT</CdtDbtInd>
+								<ChrgInclInd>true</ChrgInclInd>
+								<Agt><FinInstnId><BICFI>COBADEFFXXX</BICFI></FinInstnId></Agt>
+							</Rcrd>								
+						</Chrgs>
+						<!--Bei R-Transaktion werden die Parteien NICHT gedreht -->
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Urspruenglicher Zahlungspflichtiger 1</Nm>
+								</Pty>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>DE89370400440532013000</IBAN>
+								</Id>
+							</DbtrAcct>
+							<Cdtr>
+								<Pty>
+									<Nm>Name des Kontoinhabers, hatte ursprünglich LS gezogen</Nm>
+									<Id>
+									<PrvtId>
+										<Othr>
+										<!--Gläubiger-ID - in diesem Beipsiel wird die Test-ID vergeben von der Bundesbank verwendet  -->
+											<Id>DE98ZZZ09999999999</Id>
+										</Othr>
+									</PrvtId>
+									</Id>
+								</Pty>								
+							</Cdtr>
+							<CdtrAcct>
+								<Id>
+									<IBAN>DE62210500001234567890</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<!--Debtor Agent ist hier das Institut der Gegenseite (Bank des ursprünglichen Zahlers) - Creditor Agent ist hier das eigene Institut -->
+							 <DbtrAgt><FinInstnId><BICFI>COBADEFFXXX</BICFI></FinInstnId></DbtrAgt>
+							 <CdtrAgt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></CdtrAgt>
+						 </RltdAgts>
+						<RmtInf>
+							<Ustrd>Angabe des urspruenglichen Verwendungszweckes</Ustrd>
+						</RmtInf>
+						<RtrInf>
+							<!--Ursprünglicher Geschäftsvorfall war eine LA-Einreichung - Angabe optional -->
+							<OrgnlBkTxCd>
+								<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>IDDT</Cd>
+									<SubFmlyCd>ESCT</SubFmlyCd>
+								</Fmly>
+								</Domn>
+								<Prtry>
+									<Cd>NDDT+171</Cd>
+									<Issr>DK</Issr>
+								</Prtry>
+							</OrgnlBkTxCd>
+							<Orgtr>
+								<Id>
+									<OrgId>
+										<AnyBIC>BANKDEFFXXX</AnyBIC>
+									</OrgId>
+								</Id>
+							</Orgtr>
+							<Rsn>
+								<Cd>AC04</Cd>
+							</Rsn>
+							<AddtlInf>RUECKLASTSCHRIFT Konto aufgeloest</AddtlInf>
+						</RtrInf>
+					</TxDtls>
+					<!-- Tx 2 -->
+					<TxDtls>					
+						<Refs>
+							<EndToEndId>768768</EndToEndId>
+							<MndtId>10002</MndtId>
+						</Refs>
+						<Amt Ccy="EUR">80.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<AmtDtls>
+						<!-- Originalbetrag des Lastschrifteinzugs (aus der pacs.004), d.h ohne Rücklastschriftgebühren-->							
+							<InstdAmt><Amt Ccy="EUR">76</Amt></InstdAmt>							
+						</AmtDtls>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>IDDT</Cd>
+									<SubFmlyCd>UPDD</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NRTI+109++901</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<Chrgs>
+						<!--Zu dieser Tx gibt es nur fremde Gebühren, erkennbar durch die BIC des Instituts der gegenseite, also des irsür. Debtors -->
+							<Rcrd>
+								<Amt Ccy="EUR">4</Amt>
+								<CdtDbtInd>DBIT</CdtDbtInd>
+								<ChrgInclInd>true</ChrgInclInd>
+								<Agt><FinInstnId><BICFI>NOLADE21KIE</BICFI></FinInstnId></Agt>
+							</Rcrd>								
+						</Chrgs>
+						<!--Bei R-Transaktion werden die Parteien NICHT gedreht -->
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Urspruenglicher Zahlungspflichtiger 1</Nm>
+								</Pty>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>DE68210501700012345678</IBAN>
+								</Id>
+							</DbtrAcct>
+							<Cdtr>
+								<Pty>
+									<Nm>Name des Kontoinhabers, hatte ursprünglich LS gezogen</Nm>
+									<Id>
+									<PrvtId>
+										<Othr>
+											<Id>DE98ZZZ09999999999</Id>
+										</Othr>
+									</PrvtId>
+									</Id>
+								</Pty>								
+							</Cdtr>
+							<CdtrAcct>
+								<Id>
+									<IBAN>DE62210500001234567890</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<!--Related Agents sind hier nicht angegeben, Angabe optional -->
+						<RmtInf>
+							<Ustrd>Angabe des urspruenglichen Verwendungszweckes</Ustrd>
+						</RmtInf>
+						<RtrInf>
+							<!--Ursprünglicher Geschäftsvorfall war eine LA-Einreichung - Angabe optional -->
+							<OrgnlBkTxCd>
+								<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>IDDT</Cd>
+									<SubFmlyCd>ESCT</SubFmlyCd>
+								</Fmly>
+								</Domn>
+								<Prtry>
+									<Cd>NDDT+171</Cd>
+									<Issr>DK</Issr>
+								</Prtry>
+							</OrgnlBkTxCd>
+							<Rsn>
+								<Cd>AC01</Cd>
+							</Rsn>
+							<AddtlInf>IBAN fehlerhaft</AddtlInf>
+						</RtrInf>
+					</TxDtls>
+				</NtryDtls>
+			</Ntry>
+			<!--Umsatz 5: Belastung aufgrund einer SEPA-Ueberweisung (Sammler) mit Verweis auf Original pain-Nachricht - es werden wegen des Verweises nur sehr wenige Angaben in diesem Umsatz angegeben -->
+			<Ntry>
+				<NtryRef>eeeeee</NtryRef>
+				<Amt Ccy="EUR">8500.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>ICDT</Cd>
+							<SubFmlyCd>ESCT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>191</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<Btch>
+						<MsgId>MsgId der pain-Nachricht</MsgId>
+						<PmtInfId>Sammler-Id dieser pain-Nachricht</PmtInfId>
+						<!--hier wird (optional) die Anzahl der in der pain.001 vorhandenen Anzahl von Tx angegeben. Die Gesamtsumme stimmt mit dem Umsatzbetrag überein, wird daher hier nicht verwendet -->
+						<NbOfTxs>34</NbOfTxs>
+					</Btch>
+					<TxDtls>					
+						<Amt Ccy="EUR">8500.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>ICDT</Cd>
+									<SubFmlyCd>ESCT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NTRF+191</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>SEPA-Ueberweisung</AddtlNtryInf>
+			</Ntry>		
+			<!--Umsatz 6: Belastung aufgrund von SEPA-Lastschriftrückgaben (Sammelbuchung) mit Verweis auf separate camt.054-Nachricht -->
+			<Ntry>
+				<NtryRef>eeeeee</NtryRef>
+				<Amt Ccy="EUR">276.00</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>IDDT</Cd>
+							<SubFmlyCd>UPDD</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>109</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<AddtlInfInd>
+				    	<MsgNmId>camt.054.001.08</MsgNmId>
+					<MsgId>054-20200831-00034</MsgId>
+					<!-- siehe camt.054-Beispiel - MsgId ist optional, da die Id der Referenz-camt.054 bei camt.053-Erstellung ggf. noch nicht bekannt ist  -->
+				</AddtlInfInd>
+				<NtryDtls>
+					<Btch>
+					<!--hier wird (optional) die Anzahl der in der camt.054 vorhandenen Anzahl von Transaktionen und deren Gesamtsumme angegeben. Die Gesamtsumme stimmt mit dem Umsatzbetrag überein -->
+						<NbOfTxs>3</NbOfTxs>
+						<TtlAmt Ccy="EUR">276.00</TtlAmt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+					</Btch>	
+					<TxDtls>					
+						<Amt Ccy="EUR">276.00</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>IDDT</Cd>
+									<SubFmlyCd>UPDD</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NRTI+109</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+					</TxDtls>
+				</NtryDtls>
+			</Ntry>
+			<!-- Beispiel Teil 3 - Überweisung eines Fremdwährungsbetrags (Rechnung, d.h. Purpose IVPT) und strukturierter Verwendungszweck -->
+			<Ntry>
+			<!-- Umsatz 7 -  Belastung des Gegenwertes von 500 USD  (422,76 Euro - Achtung: Hier standen versehentlich bis zum 21.5.2021 422,14 Euro) zzgl. Gebühren von 10 Euro  -->
+				<NtryRef>ffffff</NtryRef>
+				<Amt Ccy="EUR">432.76</Amt>
+				<!--Achtung: Hier standen versehentlich bis zum 21.5.2021 432,14 Euro  -->
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>ICDT</Cd>
+							<SubFmlyCd>XBCT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>201</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<EndToEndId>Ende-zu-Ende-Id des Ueberweisenden</EndToEndId>
+							<!-- UETR-nr. der Transaktion -->
+							<UETR>32ef3d04-e2a6-4a36-ba3c-1c0865e8410c</UETR>
+						</Refs>
+						<Amt Ccy="EUR">432.76</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<!-- Amount Details wird hier genutzt, da bei dieser Transaktion Währungsumrechnungen stattfinden -->	
+						<AmtDtls>
+						<!-- Betrag in Auftragswährung USD (ohne Gebühren) mit Kurs auf EUR-->							
+							<InstdAmt>
+								<Amt Ccy="USD">500</Amt>
+								<CcyXchg>
+									<SrcCcy>USD</SrcCcy>
+									<TrgtCcy>EUR</TrgtCcy>
+									<UnitCcy>EUR</UnitCcy>
+									<XchgRate>1.1827</XchgRate>
+								</CcyXchg>
+							</InstdAmt>
+							<!-- Betrag in Settlementwährung - hier auch USD -  (ohne Gebühren) -->	
+							<TxAmt>
+								<Amt Ccy="USD">500</Amt>
+							</TxAmt>
+							<!-- Gegenwertbetrag in Kontowährung vor Gebühren -->	
+							<CntrValAmt>
+								<Amt Ccy="EUR">422.76</Amt>
+							</CntrValAmt>		
+						</AmtDtls>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>ICDT</Cd>
+									<SubFmlyCd>XBCT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NTRF+201</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<Chrgs>
+						<!--10 Euro sind eigene Gebühren, erkennbar durch Angabe der BIC des eigenen Instituts, bereits aufgeschlagen auf Überweisungsbetrag -->
+							<Rcrd>
+								<Amt Ccy="EUR">10</Amt>
+								<CdtDbtInd>DBIT</CdtDbtInd>
+								<ChrgInclInd>true</ChrgInclInd>
+								<Agt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></Agt>
+							</Rcrd>								
+						</Chrgs>
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Herr Kontoinhaber</Nm>
+								</Pty>
+							</Dbtr>
+							<Cdtr>
+								<Pty>
+									<Nm>J.R. Ewing</Nm>
+									<PstlAdr>
+										<StrtNm>South Polk Street</StrtNm>
+										<PstCd>75089</PstCd>
+										<TwnNm>Dallas</TwnNm>
+										<Ctry>US</Ctry>
+									  </PstlAdr>
+								</Pty>	  
+							</Cdtr>
+							<!-- Konto des Zahlungsempfaengers als nationale Kontonummer (Other statt  IBAN) -->
+							<CdtrAcct>							
+							  <Id>
+								<Othr>
+								  <Id>3756478365</Id>
+								</Othr>
+							  </Id>
+							  <Ccy>USD</Ccy>
+							  <!-- Die Waehrung des ZE-Kontos ist in diesem Beispiel dem Zahler bekannt -->
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<!-- Bank des Zahlungsempfaengers -->
+							<CdtrAgt><FinInstnId><BICFI>CHASUS33XXX</BICFI></FinInstnId></CdtrAgt>
+						 </RltdAgts>
+						<Purp>
+							<Cd>IVPT</Cd>
+						</Purp>
+						<RmtInf>
+						<!-- strkt. VWZ - - gekürzte Fassunfübernommen aus dem betreffenden pain.001-Beispiel für den AZV - ebenfalls verfügbar unter www.ebics.de -->
+							<Strd>
+								<RfrdDocInf>
+								  <Tp>
+									<CdOrPrtry>
+									  <Cd>CINV</Cd>
+									  <!-- CommercialInvoice -->
+									</CdOrPrtry>
+								  </Tp>
+								  <Nb>INV-No-123456789</Nb>
+								  <RltdDt>2023-08-03</RltdDt>
+								  <!-- Dokumentdatum  - Hier Rechnungsdatum -->
+								  <LineDtls>
+									<!-- Nur eine Line - bezieht sich auf das ganze Dokument - in diesem Falle eine Rechnung - Rechnungsbetrag inkl. Discount, Gutschrift und Steuer -->
+									<Id>
+									  <Tp>
+										<CdOrPrtry>
+										  <Cd>ADPI</Cd>
+										  <!-- ADPI: Es handelt sich um ein Produkt -->
+										</CdOrPrtry>
+									  </Tp>
+									  <Nb>1234512346</Nb>
+									</Id>
+									<Desc>Pump</Desc>
+									<Amt>
+									  <DuePyblAmt Ccy="USD">510.20</DuePyblAmt>
+									  <!-- Rechnungsbetrag - dieser ist grundsätzlich zu zahlen - Discount und Gutschriften sowie Steuern sind bereits verrechnet  -->
+									  <DscntApldAmt>
+										<Tp>
+										  <Cd>STDS</Cd>
+										  <!-- StandingDiscount, External Code List 28-DiscountAmountType -->
+										</Tp>
+										<Amt Ccy="USD">25.00</Amt>
+										<!-- Info zu einem Rabatt, der bei Rechnungsstellung zu Tragen kam - Dieser ist im Rechungsbetrag bereits berücksichtigt   -->
+									  </DscntApldAmt>
+									  <CdtNoteAmt Ccy="USD">50.00</CdtNoteAmt>
+									  <!-- Info zu einer Gutschrift (z.B. wegen bereits erfolgter Anzahlung), die bei der Rechnungsstellung zu Tragen kam - Diese ist im Rechungsbetrag bereits berücksichtigt   -->
+									  <TaxAmt>
+										<Tp>
+										  <Cd>CNTY</Cd>
+										  <!-- CountryTax 19 Prozent, External Code List 29-TaxAmountType -->                       
+										</Tp>
+										<Amt Ccy="USD">95.00</Amt>
+										<!-- Steuerbetrag, der im Rechnungsbetrag enthalten ist -->
+									  </TaxAmt>
+									  <AdjstmntAmtAndRsn>
+										  <Amt Ccy="USD">10.20</Amt>
+										  <!-- Korrektur des Rechnungnsbetrags um 10.20 - daher weicht RemittedAmount um 10.20 USD von DuePayableAmout ab -->  						  
+										   <CdtDbtInd>DBIT</CdtDbtInd>
+										   <!-- Bei der Korrektur handelt es sich um eine Reduzierung des DuePayableAmounts, daher ist die Angabe des Indikators DBIT empfohlen, wenn dies auch kein Pflichtfeld ist -->  		
+										   <AddtlInf>cash discount</AddtlInf>
+										 <!-- Skontoabzug - es gibt keine Codes für bestimmte Korrekturen, daher hier als Textinformation - -->  					   
+									  </AdjstmntAmtAndRsn>
+									  <RmtdAmt Ccy="USD">500.00</RmtdAmt>
+									  <!-- Ueberweisungsbetrag - dieser weicht um 10.20 USD vom DuePayableAmount ab - dies sind Skonto - hier 2 Prozent - abgezogen durch Zahler vom Rechnungsbetrag  -->
+									</Amt>
+								  </LineDtls>
+								</RfrdDocInf>
+								<AddtlRmtInf>Information that does not fit into a structured element, but that is requested by the creditor.</AddtlRmtInf>
+							  </Strd>							
+						</RmtInf>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>ZAHLUNGSAUFTRAG</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+			<!-- Umsatz 8 - in diesem Beispiel am 29.11.2023 ergänzt - Gutschrift des Gegenwertes von 250 USD  (211,38 Euro) abzügl. unserer Gebühren von 8 Euro  -->
+				<NtryRef>gggggg</NtryRef>
+				<Amt Ccy="EUR">203.38</Amt>
+				<CdtDbtInd>CRDT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+				<!-- Zahlungseingang Ausland gemäß Mappingtabelle GVC - ISO BTC -->
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>XBCT</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>202</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<EndToEndId>Ende-zu-Ende-Id des Ueberweisenden</EndToEndId>
+						</Refs>
+						<Amt Ccy="EUR">203.38</Amt>
+						<CdtDbtInd>CRDT</CdtDbtInd>
+						<!-- Amount Details wird hier genutzt, da bei dieser Transaktion Währungsumrechnungen stattfinden -->	
+						<AmtDtls>
+						<!-- Betrag in Auftragswährung USD (ohne Gebühren) mit Kurs auf EUR - entspricht dem InstrdAmt aus der betreffenden pacs.008  -->
+						<!-- In InstrdAmt könnten auch Kurse stehen, wenn in der pacs.008 Kurse aus vorherigen Umrechnugnen vermerkt sind    -->							
+							<InstdAmt>
+								<Amt Ccy="USD">250</Amt>								
+							</InstdAmt>
+							<!-- Betrag in Settlementwährung - hier auch USD -  (ohne Gebühren) - hier dann Kursangabe, weil im nächsten Schritt die Umrechnung in EUR stattfindet -->	
+							<TxAmt>
+								<Amt Ccy="USD">250</Amt>
+								<CcyXchg>
+									<SrcCcy>USD</SrcCcy>
+									<TrgtCcy>EUR</TrgtCcy>
+									<UnitCcy>EUR</UnitCcy>
+									<XchgRate>1.1827</XchgRate>
+								</CcyXchg>
+							</TxAmt>
+							<!-- Gegenwertbetrag in Kontowährung vor Gebühren -->	
+							<CntrValAmt>
+								<Amt Ccy="EUR">211.38</Amt>
+							</CntrValAmt>		
+						</AmtDtls>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>XBCT</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NTRF+202</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<Chrgs>
+						<!--8 Euro sind eigene Gebühren, erkennbar durch Angabe der BIC des eigenen Instituts, bereits abgezogen vom EUR-Gegenwert des eingehenden Betrags -->
+							<Rcrd>
+								<Amt Ccy="EUR">8</Amt>
+								<CdtDbtInd>DBIT</CdtDbtInd>
+								<ChrgInclInd>true</ChrgInclInd>
+								<Agt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></Agt>
+							</Rcrd>								
+						</Chrgs>
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Überweisender Geschäftspartner Ausland</Nm>
+								</Pty>
+							</Dbtr>
+							<DbtrAcct>
+								<Id>
+									<IBAN>DE21500500001234567897</IBAN>
+								</Id>
+							</DbtrAcct>
+							<Cdtr>
+								<Pty>
+									<Nm>Herr Kontoinhaber</Nm>
+								</Pty>	  
+							</Cdtr>
+						</RltdPties>
+						<RltdAgts>
+							<!-- Bank des Zahlungsempfaengers -->
+							 <DbtrAgt><FinInstnId><BICFI>CHASUS33XXX</BICFI></FinInstnId></DbtrAgt>
+							 <CdtrAgt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></CdtrAgt>
+						 </RltdAgts>							
+						<Purp>
+							<Cd>IVPT</Cd>
+						</Purp>
+						<RmtInf>
+							<Ustrd>hier hat ein ausländischer Kunde eine Rechnung bezahlt</Ustrd>							
+						</RmtInf>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>ZAHLUNGSEINGANG AUSLAND</AddtlNtryInf>
+			</Ntry>
+			<Ntry>
+			<!-- Umsatz 9 - in diesem Beispiel am 29.11.2023 ergänzt - EUR-Gegenwertzahlung als Rücküberweisung des Umsatzes 8 an den ursprünglichen Zahler wegen Recall. Es wird nur der auf dem Konto gutgeschriebene Betrag zurücküberwiesen, d.h. in diesem Fall USD-Gegenwert von 203,38 Euro -->
+				<NtryRef>hhhhhh</NtryRef>
+				<Amt Ccy="EUR">203.38</Amt>
+				<CdtDbtInd>DBIT</CdtDbtInd>
+				<Sts>
+					<Cd>BOOK</Cd>
+				</Sts>
+				<BookgDt>
+					<Dt>2023-11-29</Dt>
+				</BookgDt>
+				<ValDt>
+					<Dt>2023-11-29</Dt>
+				</ValDt>
+				<AcctSvcrRef>Bankreferenz</AcctSvcrRef>
+				<BkTxCd>
+				<!-- Rückgabe ins Ausland - cross border reversal duew to payment return mit SubFamily Code XRTN -->
+					<Domn>
+						<Cd>PMNT</Cd>
+						<Fmly>
+							<Cd>RCDT</Cd>
+							<SubFmlyCd>XRTN</SubFmlyCd>
+						</Fmly>
+					</Domn>
+					<Prtry>
+						<Cd>201</Cd>
+						<Issr>DK</Issr>
+					</Prtry>
+				</BkTxCd>
+				<NtryDtls>
+					<TxDtls>
+						<Refs>
+							<EndToEndId>Ende-zu-Ende-Id des Ueberweisenden</EndToEndId>
+						</Refs>
+						<Amt Ccy="EUR">203.38</Amt>
+						<CdtDbtInd>DBIT</CdtDbtInd>
+						<!-- In Amount Details wird der USD-Gegenwert des Eurobetrags angegeben, der zurückgeschickt wird -->	
+						<AmtDtls>
+							<InstdAmt>
+								<Amt Ccy="USD">240.54</Amt>
+								<CcyXchg>
+									<SrcCcy>USD</SrcCcy>
+									<TrgtCcy>EUR</TrgtCcy>
+									<UnitCcy>EUR</UnitCcy>
+									<XchgRate>1.1827</XchgRate>
+								</CcyXchg>
+							</InstdAmt>
+						</AmtDtls>
+						<BkTxCd>
+							<Domn>
+								<Cd>PMNT</Cd>
+								<Fmly>
+									<Cd>RCDT</Cd>
+									<SubFmlyCd>XRTN</SubFmlyCd>
+								</Fmly>
+							</Domn>
+							<Prtry>
+								<Cd>NTRF+201</Cd>
+								<Issr>DK</Issr>
+							</Prtry>
+						</BkTxCd>
+						<RltdPties>
+							<Dbtr>
+								<Pty>
+									<Nm>Herr Kontoinhaber</Nm>
+								</Pty>
+							</Dbtr>
+							<Cdtr>
+								<Pty>
+									<Nm>Rückgutschriftsempfänger Geschäftspartner Ausland</Nm>
+								</Pty>	  
+							</Cdtr>
+							<CdtrAcct>
+								<Id>
+									<IBAN>DE21500500001234567897</IBAN>
+								</Id>
+							</CdtrAcct>
+						</RltdPties>
+						<RltdAgts>
+							<!-- Bank des Zahlers, die die Rückgutschrift ausführt -->
+							 <DbtrAgt><FinInstnId><BICFI>BANKDEFFXXX</BICFI></FinInstnId></DbtrAgt>
+							 <CdtrAgt><FinInstnId><BICFI>CHASUS33XXX</BICFI></FinInstnId></CdtrAgt>
+						 </RltdAgts>							
+						<Purp>
+							<Cd>xxxx</Cd>
+						</Purp>
+						<RmtInf>
+							<Ustrd>Rückerstattung</Ustrd>							
+						</RmtInf>
+					</TxDtls>
+				</NtryDtls>
+				<AddtlNtryInf>RUECKUEBERWEISUNG</AddtlNtryInf>
+			</Ntry>				
+		</Stmt>
+	</BkToCstmrStmt>
+</Document>

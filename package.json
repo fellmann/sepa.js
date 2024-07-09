@@ -15,20 +15,26 @@
     "lint"
   ],
   "scripts": {
-    "lint": "./node_modules/.bin/eslint .",
-    "build": "uglifyjs -m reserved=['exports','require'] -o lib/sepa.min.js lib/sepa.js",
-    "test": "jest"
+    "lint": "eslint .",
+    "build": "tsup lib/index.ts --minify --dts",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@xmldom/xmldom": "*"
+    "@xmldom/xmldom": "*",
+    "fast-xml-parser": "^4.4.0",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "eslint": "^8.39.0",
-    "eslint-plugin-jest": "^27.6.0",
+    "@jest/globals": "^29.7.0",
+    "eslint": "^9.6.0",
+    "eslint-plugin-jest": "^28.6.0",
     "jest": "^29.7.0",
     "pre-commit": "*",
-    "uglify-js": "^3.3.20",
-    "xpath": "^0.0.33",
+    "ts-jest": "^29.1.5",
+    "uglify-js": "^3.18.0",
+    "xpath": "^0.0.34",
     "xsd-validator": "^1.1.1"
   },
   "engines": {
